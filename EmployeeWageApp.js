@@ -201,3 +201,11 @@ function isValidEmail(email) {
 }
 
 console.log(isValidEmail("abc@bridgelabz.co"));       // true
+
+// UC4 - Email validatation with optional part
+function isValidEmail(email) {
+    let emailRegex = /^abc([_\+\-\.][a-zA-Z]+)?@[bB]ridgelabz\.co(\.[a-zA-Z]{2,})?$/;
+    return emailRegex.test(email);
+}
+
+console.log(isValidEmail("abc@bridgelabz.co"));       // true
