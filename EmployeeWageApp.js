@@ -166,3 +166,11 @@ function isValidPinCode(pin) {
 console.log(isValidPinCode("400088"));  // true 
 console.log(isValidPinCode("A400088")); // false
 console.log(isValidPinCode("400088X")); // false
+
+// UC3 - pin code validation with space
+function isValidPinCode(pin) {
+    let pinCodeRegex = /^[1-9][0-9]{2} ?[0-9]{3}$/;
+    return pinCodeRegex.test(pin);
+}
+
+console.log(isValidPinCode("400 088"));  // true 
