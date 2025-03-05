@@ -23,3 +23,10 @@ function getWorkingHours(empCheck) {
 let empHrs = getWorkingHours(empCheck);
 let empWage = empHrs * WAGE_PER_HOUR;
 console.log("UC2 - Emp Wage: " + empWage);
+
+// UC3: Refactor code using function
+function calcDailyWage(empHrs) {
+    return empHrs * WAGE_PER_HOUR;
+}
+
+console.log("UC3 - Emp Wage using function: " + calcDailyWage(empHrs));
