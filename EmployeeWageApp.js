@@ -66,3 +66,36 @@ while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS
 }
 
 console.log("UC6 - Daily Wages: " + empDailyWageArr);
+
+// UC7: Using Array Helper Functions for various operations
+// (a) Calculate total Wage using forEach and reduce
+let totEmpWage = 0;
+empDailyWageArr.forEach(dailyWage => totEmpWage += dailyWage);
+console.log("UC7A - Total Wage using forEach: " + totEmpWage);
+
+console.log("UC7A - Total Wage using reduce: " +
+    empDailyWageArr.reduce((total, wage) => total + wage, 0));
+
+// (b) Show the Day along with Daily Wage using Map
+let dailyCounter = 0;
+let mapDayWithWage = empDailyWageArr.map(wage => `Day ${++dailyCounter} = ${wage}`);
+console.log("UC7B - Daily Wage Map: " + mapDayWithWage);
+
+// (c) Show Days when Full Time Wage (160) was earned using filter
+let fullTimeDays = mapDayWithWage.filter(day => day.includes("160"));
+console.log("UC7C - Full Time Wage Days: " + fullTimeDays);
+
+// (d) Find first occurrence of Full Time Wage using find
+let firstFullTime = mapDayWithWage.find(day => day.includes("160"));
+console.log("UC7D - First Full Time Wage Day: " + firstFullTime);
+
+// (e) Check if Every Element of Full Time Wage truly holds Full Time Wage
+console.log("UC7E - Is every Full Time Wage really 160? " +
+    fullTimeDays.every(day => day.includes("160")));
+
+// (f) Check if there is any Part Time Wage
+console.log("UC7F - Is there any Part Time Wage? " +
+    mapDayWithWage.some(day => day.includes("80")));
+
+// (g) Find number of days the Employee Worked
+console.log("UC7G - Total Days Worked: " + empDailyWageArr.reduce((count, wage) => wage > 0 ? count + 1 : count, 0));
