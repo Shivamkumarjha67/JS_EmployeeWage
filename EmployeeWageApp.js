@@ -193,3 +193,11 @@ function isValidEmail(email) {
 }
 
 console.log(isValidEmail("abc@bridgelabz.co"));       // true
+
+// UC3 - Email validatation with mandatory part(@Bridgelabz.co or @bridgelabz.co)
+function isValidEmail(email) {
+    let emailRegex = /^abc@[bB]ridgelabz\.co$/;
+    return emailRegex.test(email);
+}
+
+console.log(isValidEmail("abc@bridgelabz.co"));       // true
