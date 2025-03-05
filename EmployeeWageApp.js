@@ -208,4 +208,12 @@ function isValidEmail(email) {
     return emailRegex.test(email);
 }
 
-console.log(isValidEmail("abc@bridgelabz.co"));       // true
+console.log(isValidEmail("abc@bridgelabz.co.lox"));       // falses
+
+// UC5 - Email validatation with optional part with character only
+function isValidEmail(email) {
+    let emailRegex = /^abc([_\+\-\.][a-zA-Z]+)?@bridgelabz\.co(\.[a-zA-Z]{2})?$/;
+    return emailRegex.test(email);
+}
+
+console.log(isValidEmail("abc@bridgelabz.co.lo"));       // true
