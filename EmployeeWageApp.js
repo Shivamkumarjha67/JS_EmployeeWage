@@ -157,11 +157,12 @@ function isValidPinCode(pin) {
 console.log(isValidPinCode("400088")); // true
 console.log(isValidPinCode("126756")); // false
 
-// UC2 - pin code validation (General)
+// UC2 - pin code validation (General) & UC3
 function isValidPinCode(pin) {
-    let pinCodeRegex = /^[1-9][0-9]{5}$/;
+    let pinCodeRegex = /^[1-9][0-9]{5}$/;     // this restricts any alphabet entry from back as well
     return pinCodeRegex.test(pin);
 }
 
 console.log(isValidPinCode("400088"));  // true 
 console.log(isValidPinCode("A400088")); // false
+console.log(isValidPinCode("400088X")); // false
