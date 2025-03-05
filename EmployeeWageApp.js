@@ -39,3 +39,15 @@ for (let day = 0; day < NUM_OF_WORKING_DAYS; day++) {
     totalEmpWage += calcDailyWage(getWorkingHours(empCheck));
 }
 console.log("UC4 - Total Employee Wage for a Month: " + totalEmpWage);
+
+// UC5: Calculate Wages till total Working Hours (160) or max days (20) is reached
+const MAX_HRS_IN_MONTH = 160;
+let totalEmpHrs = 0, totalWorkingDays = 0;
+while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS) {
+    totalWorkingDays++;
+    let empCheck = Math.floor(Math.random() * 10) % 3;
+    let empHrs = getWorkingHours(empCheck);
+    totalEmpHrs += empHrs;
+}
+let finalEmpWage = calcDailyWage(totalEmpHrs);
+console.log("UC5 - Total Days: " + totalWorkingDays + " Total Hrs: " + totalEmpHrs + " Emp Wage: " + finalEmpWage);
