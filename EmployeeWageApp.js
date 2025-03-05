@@ -156,3 +156,12 @@ function isValidPinCode(pin) {
 
 console.log(isValidPinCode("400088")); // true
 console.log(isValidPinCode("126756")); // false
+
+// UC2 - pin code validation (General)
+function isValidPinCode(pin) {
+    let pinCodeRegex = /^[1-9][0-9]{5}$/;
+    return pinCodeRegex.test(pin);
+}
+
+console.log(isValidPinCode("400088"));  // true 
+console.log(isValidPinCode("A400088")); // false
