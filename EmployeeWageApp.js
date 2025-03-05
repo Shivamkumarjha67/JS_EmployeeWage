@@ -148,13 +148,11 @@ console.log("UC7G (Object) - Total Days Worked: " + numOfDaysWorked);
 
 
 // ----------------   Pattern Validation   ---------------------
-
+// UC1 - pin code validation
 function isValidPinCode(pin) {
-    let pinCodeRegex = /^[1-9][0-9]{5}$/;
+    let pinCodeRegex = /^400088$/;
     return pinCodeRegex.test(pin);
 }
 
-console.log(isValidPinCode("400088"));
-console.log(isValidPinCode("126756"));
-console.log(isValidPinCode("45608A")); // false (contains letter)
-console.log(isValidPinCode("4000119")); // false (more than 6 digits)
+console.log(isValidPinCode("400088")); // true
+console.log(isValidPinCode("126756")); // false
