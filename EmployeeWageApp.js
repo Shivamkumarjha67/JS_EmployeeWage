@@ -185,3 +185,11 @@ console.log(isValidEmail("abc@bridgelabz.co"));       // true
 console.log(isValidEmail("abc.xyz@bridgelabz.co.in"));// true
 console.log(isValidEmail("abc@bridgelabz.co.1n"));   // false
 console.log(isValidEmail("abc@bridgelabz"));         // false
+
+// UC2 - Email validatation with mandatory part(@Bridgelabz or @bridgelabz)
+function isValidEmail(email) {
+    let emailRegex = /^abc@[bB]ridgelabz$/;
+    return emailRegex.test(email);
+}
+
+console.log(isValidEmail("abc@bridgelabz.co"));       // true
