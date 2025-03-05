@@ -99,3 +99,48 @@ console.log("UC7F - Is there any Part Time Wage? " +
 
 // (g) Find number of days the Employee Worked
 console.log("UC7G - Total Days Worked: " + empDailyWageArr.reduce((count, wage) => wage > 0 ? count + 1 : count, 0));
+
+// UC7 (Refactored with Objects, Helper Functions, and Arrow Functions)
+let empWageData = {
+    dailyWageArr: [],
+    dailyHoursArr: [],
+    totalEmpHrs: 0,
+    totalWorkingDays: 0
+};
+
+while (empWageData.totalEmpHrs <= MAX_HRS_IN_MONTH && empWageData.totalWorkingDays < NUM_OF_WORKING_DAYS) {
+    empWageData.totalWorkingDays++;
+    let empCheck = Math.floor(Math.random() * 10) % 3;
+    let empHrs = getWorkingHours(empCheck);
+    empWageData.totalEmpHrs += empHrs;
+    empWageData.dailyWageArr.push(calcDailyWage(empHrs));
+    empWageData.dailyHoursArr.push(empHrs);
+}
+
+// (a) Calculate total Wage using reduce
+let calcTotalWage = empWageData.dailyWageArr.reduce((total, wage) => total + wage, 0);
+console.log("UC7A (Object) - Total Wage: " + calcTotalWage);
+
+// (b) Show Day along with Daily Wage using Map
+let dailyWageWithDay = empWageData.dailyWageArr.map((wage, index) => `Day ${index + 1} = ${wage}`);
+console.log("UC7B (Object) - Daily Wage Map: " + dailyWageWithDay);
+
+// (c) Show Days when Full Time Wage of 160 was earned using filter
+let fullTimeWageDays = dailyWageWithDay.filter(day => day.includes("160"));
+console.log("UC7C (Object) - Full Time Wage Days: " + fullTimeWageDays);
+
+// (d) Find first occurrence when Full Time Wage was earned
+let firstFullTimeDay = dailyWageWithDay.find(day => day.includes("160"));
+console.log("UC7D (Object) - First Full Time Wage Day: " + firstFullTimeDay);
+
+// (e) Check if Every Element of Full Time Wage is truly 160
+console.log("UC7E (Object) - Is every Full Time Wage 160? " +
+    fullTimeWageDays.every(day => day.includes("160")));
+
+// (f) Check if there is any Part Time Wage
+console.log("UC7F (Object) - Is there any Part Time Wage? " +
+    dailyWageWithDay.some(day => day.includes("80")));
+
+// (g) Find number of days the Employee Worked
+let numOfDaysWorked = empWageData.dailyHoursArr.reduce((count, hours) => hours > 0 ? count + 1 : count, 0);
+console.log("UC7G (Object) - Total Days Worked: " + numOfDaysWorked);
